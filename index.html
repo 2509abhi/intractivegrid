@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive pricing component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body {
+      background-image: url(images/bg-pattern.svg);
+      text-align: center;
+    }
+
+    p {
+      color: hsl(222, 13%, 69%);
+    }
+
+    a {
+      text-decoration-line: none;
+    }
+
+    #body {
+
+      background-color: #fff;
+      width: 400px;
+      border-radius: 30px;
+      padding: 3rem;
+      margin-left: 25rem;
+      margin-top: 5rem;
+    }
+
+    /* copy w3 school */
+    .sliderl {
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 20px;
+      width: 100%;
+      height: 10px;
+      background: hsl(174, 86%, 45%);
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    /* Mouse-over effects */
+    .sliderl:hover {
+      box-shadow: 0 0 5px hsl(174, 86%, 45%);
+      opacity: 1;
+      /* Fully shown on mouse-over */
+    }
+    
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .sliderl::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border-radius: 30px;
+      width: 30px;
+      height: 30px;
+      background: hsl(174, 86%, 45%);
+      background-image: url(images/icon-slider.svg);
+      background-repeat: no-repeat;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 35px;
+      height: 22px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 4px;
+      bottom: 4px;
+      background-color: rgb(247, 240, 240);
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: hsl(174, 86%, 45%);
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 5px hsl(174, 86%, 45%);
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(15px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .an {
+      margin-top: 2rem;
+    }
+
+    .red {
+      color:
+        red;
+    }
+
+    .m {
+      margin-left: 7rem;
+    }
+
+    .sliderl {
+      width: 400px;
+    }
+
+    .sl {
+      position: relative;
+      left: 9rem;
+    }
+
+    .circle {
+      position: absolute;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .left {
+      text-align: left;
+    }
+
+    .btn {
+      background-color: hsl(227, 35%, 25%);
+      color: hsl(174, 77%, 80%);
+      border-radius: 30px;
+      padding: 1rem;
+      position: relative;
+      top: 3rem;
+      left: 8rem;
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+    @media (max-width: 500px) {
+      #body{
+        margin-left: .3rem;
+        width: 350px;
+      }
+      .bot{
+        display: block;
+        text-align: center;
+      }
+      .left{
+        text-align: center;
+      }
+      .btn{
+        text-align: center;
+        position: static;
+      }
+      .flex{
+        display: block;
+      }
+      .m{
+        display: flex;
+        position: relative;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <img class="circle" src="images/pattern-circles.svg" alt="circles">
+    <h1>Simple, traffic-based pricing</h1>
+    <p>Sign-up for our 30-day trial. No credit card required.</p>
+  </div>
+  <main id="body">
+    <div class="flex">
+      <div class="flex">
+        <p class="an">100k Pageviews</p>
+      </div>
+      <div class="flex m">
+        <h1 class="hr">$16.00</h1>
+        <p class="annual an">/month</p>
+      </div>
+    </div>
+    <label for="slider">
+      <input type="range" min="1" max="5" value="3" class="sliderl" step="1" placeholder="a">
+    </label>
+    <p>
+      Monthly Billing
+      <label class="switch">
+        <input class="check" type="checkbox" value=0 placeholder="abhi">
+        <span class="slider round"></span>
+      </label>
+      Yearly Billing <g class="red">- 25% discount</g>
+    </p>
+    <hr>
+    <div class="flex bot">
+      <div class="left">
+        <p><img src="images/icon-check.svg" alt="check"> Unlimited websites</p>
+        <p><img src="images/icon-check.svg" alt="check"> 100% data ownership</p>
+        <p><img src="images/icon-check.svg" alt="check"> Email reports</p>
+      </div>
+      <div>
+        <a class="btn" href="#">Start my trial</a>
+      </div>
+    </div>
+  </main>
+  <div class="attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Abhishek Bansal</a>.</p>
+  </div>
+  <script>
+    document.querySelector(".check").addEventListener("click", function(){
+      document.querySelector(".check").value = togle(document.querySelector(".check").value);
+      if (document.querySelector(".check").value == 1) {
+      document.querySelector(".hr").innerText = "$ " + (parseInt(document.querySelector(".sliderl").value) * 8 * 12 - 0.25 * (parseInt(document.querySelector(".sliderl").value) * 8 * 12)) + ".00";
+      document.querySelector(".annual").innerText = "/year";
+    }
+    else {
+      document.querySelector(".hr").innerText = "$ " + parseInt(document.querySelector(".sliderl").value) * 8 + ".00";
+      document.querySelector(".annual").innerText = "/month";
+    }
+  });
+  function togle(x){
+    return 1-x;
+  }
+  document.querySelector(".sliderl").addEventListener("click", function () {
+    if (document.querySelector(".check").value == 1) {
+      document.querySelector(".hr").innerText = "$ " + (parseInt(document.querySelector(".sliderl").value) * 8 * 12 - 0.25 * (parseInt(document.querySelector(".sliderl").value) * 8 * 12)) + ".00";
+      document.querySelector(".annual").innerText = "/year";
+    }
+    else {
+      document.querySelector(".hr").innerText = "$ " + parseInt(document.querySelector(".sliderl").value) * 8 + ".00";
+      document.querySelector(".annual").innerText = "/month";
+      }
+    });
+    
+  </script>
+</body>
+
+</html>
